@@ -18,9 +18,24 @@ Dialog::Dialog(QWidget *parent)
      {
      timer=new QTimer; 
 connect(timer,SIGNAL(timeout()),this,SLOT(do_timer())); 
-timer->start(10800000); // 50 миллисекунд... 3 часа=10 800 000 мс
+timer->start(300000); // 50 миллисекунд... 3 часа=10800000 мс; 5 минут = 300000 мс
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       
+    
+         
+     }
+
+Dialog::~Dialog()
+     {
+     }
+
+void Dialog::do_timer()
+{
+//
+;;
+   // ui->pushButton->move(QPoint( ui->pushButton->pos().x()+10, ui->pushButton->pos().y()));
+   // собственно код здесь
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         QProcess::execute("/home/viktor/my_scripts_4/catalogi_v_file.sh");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     QFile inputFile("/home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL/spisok.txt");
@@ -43,19 +58,5 @@ timer->start(10800000); // 50 миллисекунд... 3 часа=10 800 00
     
        }
        inputFile.close();
-    }          
-    
-         
-     }
-
-Dialog::~Dialog()
-     {
-     }
-
-void Dialog::do_timer()
-{
-//
-;;
-   // ui->pushButton->move(QPoint( ui->pushButton->pos().x()+10, ui->pushButton->pos().y()));
-   // собственно код здесь
+    }   
 }
