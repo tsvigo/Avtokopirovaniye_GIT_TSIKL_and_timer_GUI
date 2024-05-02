@@ -18,7 +18,7 @@ Dialog::Dialog(QWidget *parent)
      {
      timer=new QTimer; 
 connect(timer,SIGNAL(timeout()),this,SLOT(do_timer())); 
-timer->start(10800000); // 50 миллисекунд... 3 часа=10800000 мс; 5 минут = 300000 мс
+timer->start(60000); // 50 миллисекунд... 3 часа=10800000 мс; 5 минут = 300000 мс;  60000 мс = минута
 
        
     
@@ -36,9 +36,9 @@ void Dialog::do_timer()
    // ui->pushButton->move(QPoint( ui->pushButton->pos().x()+10, ui->pushButton->pos().y()));
    // собственно код здесь
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        QProcess::execute("/home/viktor/my_scripts_4/catalogi_v_file.sh");
+        QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    QFile inputFile("/home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL/spisok.txt");
+    QFile inputFile("/home/viktor/my_scripts_4/names_directory_list.txt");
     if (inputFile.open(QIODevice::ReadOnly))
     {
     
