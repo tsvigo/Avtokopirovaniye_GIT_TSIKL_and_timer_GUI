@@ -50,10 +50,11 @@ void Dialog::do_timer()
           QString  comanda_vsia="cd /home/viktor/my_projects_qt_2/"+line +
 
 " && /usr/bin/git init && /usr/bin/git add --all && /usr/bin/git commit -m \"Описание коммита \" && cd /home/viktor/my_projects_qt_2/"+line
- +" && /usr/bin/hub create && cd /home/viktor/my_projects_qt_2/"+line 
+ +" && /home/linuxbrew/.linuxbrew/bin/hub create && cd /home/viktor/my_projects_qt_2/"+line 
 
- +" && /usr/bin/hub push origin";
-
+ +" && /home/linuxbrew/.linuxbrew/bin/hub push origin";
+// /home/linuxbrew/.linuxbrew/bin/hub
+// /usr/bin/hub
             system (comanda_vsia.toStdString().c_str() );
     
        }
