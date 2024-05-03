@@ -54,7 +54,11 @@ void Dialog::do_timer()
 
 // +" && git push origin master && git push --set-upstream origin master && /home/linuxbrew/.linuxbrew/bin/hub push origin";
 //#######################################################################################
-QString  comanda_vsia="";
+QString comanda_vsia=
+//const char data[]=
+"cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git init && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git add --all && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git commit -m \"Описание коммита\" cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI &&  /home/linuxbrew/.linuxbrew/bin/hub create cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /home/linuxbrew/.linuxbrew/bin/hub push";
+//########################################################################################################
+
 
 // /home/linuxbrew/.linuxbrew/bin/hub
 // /usr/bin/hub
