@@ -46,14 +46,16 @@ void Dialog::do_timer()
        while (!in.atEnd())
        {
           QString line = in.readLine();
+//########################################################################################################
+//          QString  comanda_vsia="cd /home/viktor/my_projects_qt_2/"+line +
 
-          QString  comanda_vsia="cd /home/viktor/my_projects_qt_2/"+line +
+//" && /usr/bin/git init && /usr/bin/git add --all && /usr/bin/git commit -m \"Описание коммита \" && cd /home/viktor/my_projects_qt_2/"+line
+// +" && /home/linuxbrew/.linuxbrew/bin/hub create && cd /home/viktor/my_projects_qt_2/"+line 
 
-" && /usr/bin/git init && /usr/bin/git add --all && /usr/bin/git commit -m \"Описание коммита \" && cd /home/viktor/my_projects_qt_2/"+line
- +" && /home/linuxbrew/.linuxbrew/bin/hub create && cd /home/viktor/my_projects_qt_2/"+line 
-
- +" && git push origin master && git push --set-upstream origin master && /home/linuxbrew/.linuxbrew/bin/hub push origin";
+// +" && git push origin master && git push --set-upstream origin master && /home/linuxbrew/.linuxbrew/bin/hub push origin";
 //#######################################################################################
+QString  comanda_vsia="";
+
 // /home/linuxbrew/.linuxbrew/bin/hub
 // /usr/bin/hub
             system (comanda_vsia.toStdString().c_str() );
