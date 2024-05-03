@@ -19,7 +19,7 @@ Dialog::Dialog(QWidget *parent)
      {
      timer=new QTimer; 
 connect(timer,SIGNAL(timeout()),this,SLOT(do_timer())); 
-timer->start(60000); // 50 миллисекунд... 3 часа=10800000 мс; 5 минут = 300000 мс;  60000 мс = минута
+timer->start(10800000); // 50 миллисекунд... 3 часа=10800000 мс; 5 минут = 300000 мс;  60000 мс = минута
 
        
     
