@@ -9,6 +9,7 @@
 #include <QProcess>
 #include <QTextStream>
 #include <QFile>
+#include <QDebug>
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief Dialog::Dialog
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,17 +36,32 @@ void Dialog::do_timer()
 ;;
    // ui->pushButton->move(QPoint( ui->pushButton->pos().x()+10, ui->pushButton->pos().y()));
    // собственно код здесь
-   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    QFile inputFile("/home/viktor/my_scripts_4/names_directory_list.txt");
-    if (inputFile.open(QIODevice::ReadOnly))
-    {
+        QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
+
+//########################################################################################################
+QProcess process;
+process.start("bash", QStringList() << "/home/viktor/my_scripts_4/auto_git.sh");
+process.waitForFinished(-1);
+int exitCode = process.exitCode();    
+
+qDebug() << "exitCode = " << exitCode;//. [1](https://intuit.ru/studies/courses/3479/721/lecture/25564?page=3)
+
+  
+//  QString proc_stdout = process.readAllStandardOutput();
+//QString proc_stderr = process.readAllStandardError();
+
+//std::cout << process.toStdString() << std::endl;
+//std::cerr << process.toStdString() << std::endl;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    QFile inputFile("/home/viktor/my_scripts_4/names_directory_list.txt");
+//    if (inputFile.open(QIODevice::ReadOnly))
+//    {
     
-       QTextStream in(&inputFile);
-       while (!in.atEnd())
-       {
-          QString line = in.readLine();
+//       QTextStream in(&inputFile);
+//       while (!in.atEnd())
+//       {
+//          QString line = in.readLine();
 //########################################################################################################
 //          QString  comanda_vsia="cd /home/viktor/my_projects_qt_2/"+line +
 
@@ -54,17 +70,15 @@ void Dialog::do_timer()
 
 // +" && git push origin master && git push --set-upstream origin master && /home/linuxbrew/.linuxbrew/bin/hub push origin";
 //#######################################################################################
-QString comanda_vsia=
-//const char data[]=
-"cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git init && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git add --all && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git commit -m \"Описание коммита\" cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI &&  /home/linuxbrew/.linuxbrew/bin/hub create cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /home/linuxbrew/.linuxbrew/bin/hub push";
+//QString comanda_vsia=
+////const char data[]=
+//"cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git init && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git add --all && cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /usr/bin/git commit -m \"Описание коммита\" cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI &&  /home/linuxbrew/.linuxbrew/bin/hub create cd /home/viktor/my_projects_qt_2/Avtokopirovaniye_GIT_TSIKL_and_timer_GUI && /home/linuxbrew/.linuxbrew/bin/hub push";
+
 //########################################################################################################
 
-
-// /home/linuxbrew/.linuxbrew/bin/hub
-// /usr/bin/hub
-            system (comanda_vsia.toStdString().c_str() );
+//            system (comanda_vsia.toStdString().c_str() );
     
-       }
-       inputFile.close();
-    }   
+//       }
+//       inputFile.close();
+//    }   
 }
