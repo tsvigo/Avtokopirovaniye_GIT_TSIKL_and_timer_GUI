@@ -10,6 +10,7 @@
 #include <QTextStream>
 #include <QFile>
 #include <QDebug>
+#include <iostream>
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief Dialog::Dialog
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,16 +35,30 @@ void Dialog::do_timer()
    // ui->pushButton->move(QPoint( ui->pushButton->pos().x()+10, ui->pushButton->pos().y()));
    // собственно код здесь
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
-
-//########################################################################################################
+   //     QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
 QProcess process;
-process.start("bash", QStringList() << "/home/viktor/my_scripts_4/auto_git.sh");
-process.waitForFinished(-1);
-int exitCode = process.exitCode();    
+process.start("bash", QStringList() << "/home/viktor/my_scripts_4/imena_katalogov.sh");
+process.waitForFinished();
+QString output = process.readAllStandardOutput();
+std::cout << output.toStdString() << std::endl;
+//########################################################################################################
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   //     QProcess::execute("/home/viktor/my_scripts_4/imena_katalogov.sh");
+QProcess process2;
+process2.start("bash", QStringList() << "/home/viktor/my_scripts_4/podkluchenie_k_git.sh");
+process2.waitForFinished();
+QString output2 = process2.readAllStandardOutput();
+std::cout << output2.toStdString() << std::endl;
+//########################################################################################################
+QProcess process3;
+process3.start("bash", QStringList() << "/home/viktor/my_scripts_4/auto_git.sh");
+process3.waitForFinished(-1);
+QString output3 = process3.readAllStandardOutput();
+std::cout << output3.toStdString() << std::endl;
 
+int exitCode = process3.exitCode();    
 qDebug() << "exitCode = " << exitCode;//. [1](https://intuit.ru/studies/courses/3479/721/lecture/25564?page=3)
-
+//########################################################################################################
   
 //  QString proc_stdout = process.readAllStandardOutput();
 //QString proc_stderr = process.readAllStandardError();
